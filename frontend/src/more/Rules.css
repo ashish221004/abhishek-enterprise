@@ -1,0 +1,86 @@
+
+  .section-accordion {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 6rem;
+}
+
+.section-accordion li {
+    background-color: #28304d; /* Deep blue */
+    color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    list-style-position: inside;
+    border-left: 0.3rem solid #164e63;
+    font-family: "Segoe Script",
+  }
+
+  .active-btn {
+    background-color: #ff6b6b; 
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: bold; 
+    padding: 12px 20px; 
+    border: none;
+    border-radius: 8px; 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px;
+}
+
+.active-btn:hover {
+    background-color: #ff5252; 
+    box-shadow: rgba(255, 82, 82, 0.6) 0px 6px 16px; 
+    transform: translateY(-2px);
+}
+
+.active-btn:active {
+    background-color: #e64545; 
+    transform: translateY(2px); 
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px; 
+}
+
+  
+  .accordion-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion-question {
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.1rem;
+    font-size: 1.8rem;
+    color: #ffcb6b; 
+  }
+  
+  
+
+  @media screen and (max-width: 980px) {
+    
+    .section-accordion {
+      width: 85%; /* Wider for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 720px) {
+    .section-accordion {
+      width: 95%;
+    }
+  
+    .accordion-grid {
+      flex-direction: column; /* Stack content vertically on smaller screens */
+      align-items: flex-start;
+    }
+  
+    .accordion-question {
+      font-size: 1.6rem;
+    }
+  }
+  
+
