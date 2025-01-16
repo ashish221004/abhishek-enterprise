@@ -9,7 +9,6 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Support from "@material-ui/icons/ReportProblem"
 import HeartIcon from "@material-ui/icons/FavoriteBorder";
-import HeartActiveIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,14 +26,31 @@ const UserData = ({ user }) => {
   
   const scroolEffect = useRef(null);
 
-  window.addEventListener("scroll", () =>{
-    if(window.pageYOffset > 100){
-        document.querySelector(".speedDial").classList.add("active");
+  // window.addEventListener("scroll", () =>{
+  //   if(window.pageYOffset > 100){
+  //       document.querySelector(".speedDial").classList.add("active");
+  //   }
+  //   else{
+  //     document.querySelector(".speedDial").classList.remove("active");
+  //   }
+  // })
+  document.addEventListener("DOMContentLoaded", () => {
+    const speedDial = document.querySelector(".speedDial");
+  
+    if (!speedDial) {
+      console.error("Element with class '.speedDial' not found in the DOM.");
+      return; 
     }
-    else{
-      document.querySelector(".speedDial").classList.remove("active");
-    }
-  })
+  
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 100) {
+        speedDial.classList.add("active");
+      } else {
+        speedDial.classList.remove("active");
+      }
+    });
+  });
+  
 
   const dispatch = useDispatch();
 

@@ -27,21 +27,21 @@ import shoes2 from "../../Assets/shoes 2.jpeg";
 const recommendationSection = [
   {
     id: 1,
-    title: "Iphone 14",
+    title: "Sandal",
     desc: "Juicy, farm-fresh fruits delivered straight from the orchard to you.",
     bgImage:
       "https://arunenterprise.com/wp-content/uploads/2024/08/pexels-rovenimages-com-344613-949590-scaled.jpg",
   },
   {
     id: 2,
-    title: "Iphone 15",
+    title: "Shoes",
     desc: "Naturally grown, farm-fresh vegetables for healthy meals and vibrant flavors.",
     bgImage:
       "https://arunenterprise.com/wp-content/uploads/2024/08/pexels-zaktech90-1027130-300x300.jpg",
   },
   {
     id: 3,
-    title: "Iphone 16",
+    title: "Ponds Beauty",
     desc: "Wholesome, sustainable organic legumes for healthy and eco-friendly meals.",
     bgImage:
       "https://arunenterprise.com/wp-content/uploads/2024/08/3-300x300.webp",
@@ -114,7 +114,7 @@ const Home = () => {
           {/* Carousel */}
           <div className="banner">
             <Carousel>
-              <img src={bg} className="bgImg" />
+              <img src={bg} className="bgImg" alt="home"/>
               {/* <img src={bg2} className="bgImg" /> */}
             </Carousel>
             <div className="home__content">

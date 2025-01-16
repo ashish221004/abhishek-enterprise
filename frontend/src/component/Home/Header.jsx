@@ -11,13 +11,13 @@ const Header = () => {
 
   const switcherTab = useRef(null);
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 100) {
-      document.querySelector(".navbar").classList.add("active");
-    } else {
-      document.querySelector(".navbar").classList.remove("active");
-    }
-  });
+  // window.addEventListener("scroll", () => {
+  //   if (window.pageYOffset > 100) {
+  //     document.querySelector(".navbar").classList.add("active");
+  //   } else {
+  //     document.querySelector(".navbar").classList.remove("active");
+  //   }
+  // });
   const MenuItem = ({ to, children }) => {
     return (
       <li style={{ margin: "0 10px", position: "relative" }}>

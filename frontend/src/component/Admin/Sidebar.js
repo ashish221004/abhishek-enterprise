@@ -3,17 +3,17 @@ import "./Sidebar.css";
 import { Link } from "react-router-dom";
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import AddIcon from "@material-ui/icons/Add";
-import LocalOffer from "@material-ui/icons/LocalOffer";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import PeopleIcon from "@material-ui/icons/People";
 import RateReviewIcon from "@material-ui/icons/RateReview";
 import logo from '../../Assets/ecom-logo.png'
+import { RiSecurePaymentLine } from "react-icons/ri";
 
 const Sidebar = () => {
   
   const button = () =>{
-    let items = document.querySelectorAll(".Dashboard__item");
+    // let items = document.querySelectorAll(".Dashboard__item");
    
 }
 
@@ -30,6 +30,9 @@ const Sidebar = () => {
       </Link>
           <Link to="/admin/products">
               <p className="Dashboard__item"><PostAddIcon /> All Products</p>
+          </Link>
+          <Link to="/admin/payment">
+              <p className=""> <RiSecurePaymentLine className="text-2xl" />All payment</p>
           </Link>
 
           <Link to="/admin/product">

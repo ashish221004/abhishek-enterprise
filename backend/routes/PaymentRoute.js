@@ -1,11 +1,15 @@
 const express = require("express");
-const { Payment, sendStripeApiKey } = require("../controller/PaymentController");
+const { verifyAndSavePayment, createOrder, getRazorpayApiKey, allPayments } = require("../controller/PaymentController.js");
+const { authorizeRoles } = require("../middleware/auth.js");
 const router = express.Router();
-const {isAuthenticatedUser} = require("../middleware/auth");
 
-router.route("/payment/process").post(isAuthenticatedUser, Payment);
+router.route("/payment/process").post( createOrder);
 
-router.route("/stripeapikey").get(isAuthenticatedUser, sendStripeApiKey);
+router.route("/verify").get( verifyAndSavePayment);
+
+router.route('/razorpay-key').get( getRazorpayApiKey);
+
+router.route('/allPayment').get(  allPayments);
 
 
 module.exports = router;

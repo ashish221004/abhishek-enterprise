@@ -2,9 +2,7 @@ import React from "react";
 
 function FAQ({ curData, onToggle, isActive }) {
   const { question, answer } = curData;
-  const handleButton = () => {
-    setActiveId(!activeId);
-  };
+
   return (
     <li>
       <div className="accordion-grid">

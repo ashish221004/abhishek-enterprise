@@ -21,11 +21,8 @@ import Cart from './component/cart/Cart';
 import Favourites from './component/cart/Favourites';
 import Shipping from './component/cart/Shipping';
 import ConfirmOrder from './component/cart/ConfirmOrder';
-import axios from 'axios';
-import { useState } from 'react';
 import Payment from './component/cart/Payment';
-import {loadStripe} from '@stripe/stripe-js';
-import {Elements} from '@stripe/react-stripe-js';
+
 import Success from './component/cart/Success';
 import MyOrder from "./component/user/MyOrder";
 import MyOrderDetails from "./component/user/MyOrderDetails";
@@ -45,19 +42,11 @@ import AllReviews from "../../frontend/src/component/Admin/AllReviews";
 import ForgotPassword from "../../frontend/src/component/user/ForgotPassword";
 import ResetPassword from "../../frontend/src/component/user/ResetPassword";
 import Notfound from "../../frontend/src/more/Notfound";
+import AllPayment from './component/cart/AllPayment';
 
 function App() {
 
   const {isAuthenticated,user} = useSelector((state) =>state.user);
-
-  const [stripeApiKey, setStripeApiKey] = useState("");
-
-  async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v2/stripeapikey");
-
-    setStripeApiKey(data.stripeApiKey);
-  }
-
   useEffect(() => {
     WebFont.load({
       google: {
@@ -67,19 +56,14 @@ function App() {
     
     Store.dispatch(loadUser());
     
-    getStripeApiKey();
+   
 
   }, []);
   return (
      
      <Router>
       {isAuthenticated && <UserData user={user} />}
-
-      {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path="/process/payment" component={Payment} />
-        </Elements>
-      )}
+      <ProtectedRoute exact path="/process/payment" component={Payment} />
        <Switch>
          <Route exact path="/" component={Home} />
          <Route exact path="/product/:id" component={ProductDetails} />
@@ -108,6 +92,7 @@ function App() {
          <ProtectedRoute isAdmin={true} exact path="/dashboard" component={Dashboard} />
          <ProtectedRoute isAdmin={true} exact path="/admin/product" component={CreateProduct} />
          <ProtectedRoute isAdmin={true} exact path="/admin/products" component={AllProducts} />
+         <ProtectedRoute isAdmin={true} exact path="/admin/payment" component={AllPayment} />
          <ProtectedRoute isAdmin={true} exact path="/edit/product/:id" component={EditProduct} />
          <ProtectedRoute isAdmin={true} exact path="/admin/orders" component={AllOrder} />
          <ProtectedRoute isAdmin={true} exact path="/admin/order/:id" component={UpdateOrder} />

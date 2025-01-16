@@ -18,10 +18,10 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-iframe {
+/* iframe {
   z-index: 0!important;
   display: none!important;
-}
+} */
 .greenColor {
   color: green !important;
 }
