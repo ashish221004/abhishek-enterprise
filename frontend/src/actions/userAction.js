@@ -83,10 +83,11 @@ export const loadUser = () => async (dispatch) =>{
       const config = { headers:{ "Content-Type": "application/json"} };
 
       const {data} = await axios.get(
-          `/api/v2/me`);
+          `/api/v2/me`,config);
            
      dispatch({type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {  
+    const errorMessage = error.response?.data?.message || error.message || "An error occurred";
       dispatch({type: LOAD_USER_FAIL, payload: error.response.data.message});
   }
 }
