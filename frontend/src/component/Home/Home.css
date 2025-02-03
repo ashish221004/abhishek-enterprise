@@ -113,6 +113,14 @@ img.ProductImg {
   .home__content {
     display: none; /* Hides the element on tablet and smaller screens */
   }
+  .bgImg {
+    height: 50vh;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023pxp) {
+  .bgImg {
+    height: 75vh;
+  }
 }
 @media screen and (max-width: 600px) {
   .ProductCard > p {
