@@ -4,10 +4,10 @@ import {
     SAVE_SHIPPING_INFO,
   } from "../constans/CartConstans";
   import axios from "axios";
-  
+  const BASE_URL="https://api.abhishekenterprises.shop"
   // Add to Cart ---Product
   export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/v2/product/${id}`);
+    const { data } = await axios.get(`${BASE_URL}/api/v2/product/${id}`);
   
     dispatch({
       type: ADD_TO_CART,
