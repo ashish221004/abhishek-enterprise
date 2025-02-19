@@ -22,7 +22,6 @@ import Favourites from './component/cart/Favourites';
 import Shipping from './component/cart/Shipping';
 import ConfirmOrder from './component/cart/ConfirmOrder';
 import Payment from './component/cart/Payment';
-
 import Success from './component/cart/Success';
 import MyOrder from "./component/user/MyOrder";
 import MyOrderDetails from "./component/user/MyOrderDetails";
@@ -43,6 +42,10 @@ import ForgotPassword from "../../frontend/src/component/user/ForgotPassword";
 import ResetPassword from "../../frontend/src/component/user/ResetPassword";
 import Notfound from "../../frontend/src/more/Notfound";
 import AllPayment from './component/cart/AllPayment';
+import Privacy from './Policy/Privacy-policy';
+import TermsCondition from './Policy/TermsCondition';
+import RetunRefund from './Policy/RetunRefund';
+import CookiePolicy from './Policy/Cookie-Policy';
 
 function App() {
 
@@ -77,6 +80,10 @@ function App() {
          <Route exact path="/favourites" component={Favourites} />
          <Route exact path="/creator" component={CommingSoon} />
          <Route exact path="/faq" component={Rules} />
+         <Route exact path="/privacy-policy" component={Privacy} />
+         <Route exact path="/terms&Condition" component={TermsCondition} />
+         <Route exact path="/return-refund" component={RetunRefund} />
+         <Route exact path="/cookie-policy" component={CookiePolicy} />
          <Route exact path="/contact" component={Contact} />
          <Route exact path="/more" component={MoreOption} />
          <Route exact path="/password/forgot" component={ForgotPassword} />
@@ -99,11 +106,10 @@ function App() {
          <ProtectedRoute isAdmin={true} exact path="/admin/users" component={AllUsers} />
          <ProtectedRoute isAdmin={true} exact path="/admin/user/:id" component={UpdateUser} />
          <ProtectedRoute isAdmin={true} exact path="/admin/reviews" component={AllReviews} />
-
          <Route component={
            window.location.pathname === "/process/payment" ? null : Notfound
            } />
-       </Switch>
+       </Switch>  
      </Router>
 
   );
